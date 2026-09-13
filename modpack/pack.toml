@@ -1,0 +1,13 @@
+name = "modoru: create"
+author = "justlofe, orisana"
+version = "0.1.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "83a29ee59b5c21d1cb99f6a467e78303b10822d8d756e82210758dad2d9ae46b"
+
+[versions]
+minecraft = "1.21.1"
+neoforge = "21.1.250"
