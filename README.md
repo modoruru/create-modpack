@@ -11,3 +11,18 @@
 Modpack itself created using [packwiz](https://github.com/packwiz/packwiz).
 ### mod
 Main NeoForge mod.
+
+# Building
+For building modpack, you can use two built-in scripts:
+
+```bash
+./build.sh
+```
+
+or
+
+```bash
+./build.bat
+```
+
+Final `.mrpack` would be placed in the `build/` folder.
