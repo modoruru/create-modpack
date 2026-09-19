@@ -31,6 +31,26 @@ hash = "dcaf5f2e28db0b9a127d0167456832341045ddc9aec058c3d9fcf53f618d2404"
 metafile = true
 
 [[files]]
+file = "mods/emi-enchanting.pw.toml"
+hash = "ff029ee6fc50f2696e96cdbcc696f42e75b483c9d7b83f2b1447dcf5c865e664"
+metafile = true
+
+[[files]]
+file = "mods/emi-loot.pw.toml"
+hash = "519f011d36736129795025f19301ad2d6141f422857d6154a3df2e2019f416f3"
+metafile = true
+
+[[files]]
+file = "mods/emi.pw.toml"
+hash = "67bb77eae0b644960be3b1074178ceb5d54facbb42f326981b9d94625238a54a"
+metafile = true
+
+[[files]]
+file = "mods/emiffect.pw.toml"
+hash = "b53c40130b7c2f91237cf62480877414296fbea3525f2c824351c0c07f136ddb"
+metafile = true
+
+[[files]]
 file = "mods/farmers-delight.pw.toml"
 hash = "97347efd9e808841d72fe3599da8a11add8422e97f89ae1c85cdfc0acfa18f96"
 metafile = true
@@ -38,6 +58,11 @@ metafile = true
 [[files]]
 file = "mods/ferrite-core.pw.toml"
 hash = "73360e397134d238ee8fd21d33fd7f9275e9441f74f8f1b6ed92278877c0b9f1"
+metafile = true
+
+[[files]]
+file = "mods/fzzy-config.pw.toml"
+hash = "932c65fb598293dba5dc60a76fc64c2579db427018b10dd4757dd421d9abcaf0"
 metafile = true
 
 [[files]]
@@ -76,6 +101,11 @@ hash = "c84140c66f233909b392bd7253ca33c59903ffda51beff558d9a2a4a8c6bc269"
 metafile = true
 
 [[files]]
+file = "mods/mouse-tweaks.pw.toml"
+hash = "6bc414cc0f2d4c078fe83f384d786343f701f371d657c5279b5b0df1595804bd"
+metafile = true
+
+[[files]]
 file = "mods/power-grid.pw.toml"
 hash = "522ea92e4206f8d0b823e444fea75d8c6897261863b17c7c5bf16e26195a7cdb"
 metafile = true
@@ -83,6 +113,11 @@ metafile = true
 [[files]]
 file = "mods/sable.pw.toml"
 hash = "a1fa121ed5d0207e4cdd3f545d043f68f9a4bb38dcb21278b968fad5e4cefe4a"
+metafile = true
+
+[[files]]
+file = "mods/shulkerboxtooltip.pw.toml"
+hash = "0bef7b3dd4758a661d3e6827bd390c12ff8a3ede4a66bb2e01e3c760f02bd509"
 metafile = true
 
 [[files]]
