@@ -58,7 +58,7 @@ jobs:
         if: steps.existing-pr.outputs.exists == 'false'
         working-directory: modpack
         run: |
-          packwiz update --all
+          packwiz update --all --yes
 
       - name: Check for changes
         if: steps.existing-pr.outputs.exists == 'false'
