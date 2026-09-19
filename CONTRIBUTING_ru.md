@@ -1,5 +1,5 @@
 # Контрибьютинг
-[English version](https://github.com/modoruru/create-modpack/blob/dev/LICENSE/CONTRIBUTING.md)
+[English version](https://github.com/modoruru/create-modpack/blob/dev/CONTRIBUTING.md)
 ## Основное руководоство
 
 ### Не создавайте PR для форматирования или "очистки" кода
