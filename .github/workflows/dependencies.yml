@@ -22,6 +22,7 @@ jobs:
           count=$(gh pr list \
             --state open \
             --head "chore/dependencies" \
+            --base "${{ github.event.repository.default_branch }}" \
             --json number \
             --jq 'length')
 
