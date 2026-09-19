@@ -20,6 +20,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           count=$(gh pr list \
+            --repo "${{ github.repository }}" \
             --state open \
             --head "chore/dependencies" \
             --base "${{ github.event.repository.default_branch }}" \
@@ -69,18 +70,22 @@ jobs:
           else
             echo "Dependency updates detected."
             echo "changed=true" >> "$GITHUB_OUTPUT"
+
+            echo "Changed files:"
+            git status --short
           fi
 
       - name: Create update branch
         if: steps.changes.outputs.changed == 'true'
         run: |
-          git checkout -b chore/dependencies
-
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+          git checkout -b chore/dependencies
+
           git add modpack
           git commit -m "chore(modpack): update dependencies"
+
           git push --force-with-lease origin chore/dependencies
 
       - name: Create pull request
@@ -89,6 +94,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh pr create \
+            --repo "${{ github.repository }}" \
             --base "${{ github.event.repository.default_branch }}" \
             --head "chore/dependencies" \
             --title "chore(modpack): update dependencies" \
