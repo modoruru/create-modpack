@@ -25,7 +25,6 @@ import org.spongepowered.asm.mixin.Shadow;
 
 import java.util.Map;
 import java.util.Optional;
-import java.util.Set;
 
 @Mixin(RecipeManager.class)
 public abstract class RecipeManagerMixin extends ContextAwareReloadListener {

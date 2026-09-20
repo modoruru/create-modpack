@@ -1,6 +1,5 @@
 package modoru.create.patch;
 
-import com.google.gson.Gson;
 import modoru.create.ModoruCreate;
 import net.minecraft.resources.ResourceLocation;
 
@@ -10,19 +9,19 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
 import java.util.Set;
 
-public final class RecipeDisablePatch {
+public final class DimensionDisablePatch {
 
-    private final Set<ResourceLocation> DISABLED_RECIPES;
+    private final Set<ResourceLocation> DISABLED_DIMENSIONS;
 
-    public RecipeDisablePatch() {
-        DISABLED_RECIPES = new HashSet<>();
+    public DimensionDisablePatch() {
+        DISABLED_DIMENSIONS = new HashSet<>();
 
-        try (InputStream inputStream = ModoruCreate.class.getResourceAsStream("/patch/recipe_disable.json")) {
+        try (InputStream inputStream = ModoruCreate.class.getResourceAsStream("/patch/dimension_disable.json")) {
             if(inputStream == null) throw new NullPointerException();
 
             String[] array = Patches.GSON.fromJson(new String(inputStream.readAllBytes(), StandardCharsets.UTF_8), String[].class);
             for (String string : array) {
-                DISABLED_RECIPES.add(ResourceLocation.parse(string));
+                DISABLED_DIMENSIONS.add(ResourceLocation.parse(string));
             }
         }
         catch (IOException exception) {
@@ -31,7 +30,7 @@ public final class RecipeDisablePatch {
     }
 
     public boolean disabled(ResourceLocation resourceLocation) {
-        return DISABLED_RECIPES.contains(resourceLocation);
+        return DISABLED_DIMENSIONS.contains(resourceLocation);
     }
 
 }
