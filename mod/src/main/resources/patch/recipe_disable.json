@@ -1,5 +1,22 @@
 [
   "minecraft:furnace",
   "minecraft:furnace_minecraft",
-  "minecraft:blast_furnace"
+  "minecraft:blast_furnace",
+
+  "createmetallurgy:crafting/black_light_bulb",
+  "createmetallurgy:crafting/blue_light_bulb",
+  "createmetallurgy:crafting/brown_light_bulb",
+  "createmetallurgy:crafting/cyan_light_bulb",
+  "createmetallurgy:crafting/gray_light_bulb",
+  "createmetallurgy:crafting/green_light_bulb",
+  "createmetallurgy:crafting/light_blue_light_bulb",
+  "createmetallurgy:crafting/light_gray_light_bulb",
+  "createmetallurgy:crafting/lime_light_bulb",
+  "createmetallurgy:crafting/magenta_light_bulb",
+  "createmetallurgy:crafting/orange_light_bulb",
+  "createmetallurgy:crafting/pink_light_bulb",
+  "createmetallurgy:crafting/purple_light_bulb",
+  "createmetallurgy:crafting/red_light_bulb",
+  "createmetallurgy:crafting/white_light_bulb",
+  "createmetallurgy:crafting/yellow_light_bulb"
 ]
