@@ -60,7 +60,7 @@ public abstract class MinecraftServerMixin {
 
     /**
      * @author just_lofe
-     * @reason ability to disable dimensions on the server startup
+     * @reason provide ability to disable dimensions on the server startup
      */
     @Overwrite
     protected void createLevels(ChunkProgressListener listener) {

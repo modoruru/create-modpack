@@ -1,4 +1,4 @@
-package modoru.create.mixin;
+package modoru.create.mixin.server;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
@@ -43,7 +43,7 @@ public abstract class RecipeManagerMixin extends ContextAwareReloadListener {
 
     /**
      * @author just_lofe
-     * @reason todo
+     * @reason provide ability to disable certain recipes on each reload
      */
     @Overwrite
     protected void apply(Map<ResourceLocation, JsonElement> object, ResourceManager resourceManager, ProfilerFiller profiler) {
