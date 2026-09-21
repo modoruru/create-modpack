@@ -344,6 +344,11 @@ hash = "15962183bec2468058c70e87aa32e902a08489b0f86741088cdc9aa958ba4931"
 metafile = true
 
 [[files]]
+file = "mods/tfmg-community-edition.pw.toml"
+hash = "5f6008a44da027dc14cec20ccc50293ce85f0c0ed175e5f0d0bdc6a95f2ee294"
+metafile = true
+
+[[files]]
 file = "mods/veggies-delight.pw.toml"
 hash = "03787f92417875e7e43a959a9eb07c2c20edbddaa7cbda50205f2c388f8b8c81"
 metafile = true
