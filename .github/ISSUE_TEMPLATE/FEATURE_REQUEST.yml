@@ -1,0 +1,35 @@
+name: "[request]: Feature request"
+description: "Request a new feature or a new mod."
+title: "[request]: "
+labels: [ "status: backlog" ]
+projects: ["TerraFirmaGreg-Team/10"]
+type: "Feature"
+
+body:
+  - type: checkboxes
+    id: exists
+    attributes:
+      label: "Was this feature suggested before?"
+      description: "Please search OPEN/CLOSED issues before submitting, as the feature may have already been reported/addressed."
+      options:
+        - label: "No, it was not."
+          required: true
+
+  - type: textarea
+    id: feature
+    validations:
+      required: true
+    attributes:
+      label: What would you like to be added?
+      description: Feature requests should focus on new gameplay experiences or QoL additions.
+
+  - type: textarea
+    id: rationale
+    validations:
+      required: true
+    attributes:
+      label: Why is this needed?
+
+  - type: markdown
+    attributes:
+      value: "Thanks for taking the time to fill out this feature request."
