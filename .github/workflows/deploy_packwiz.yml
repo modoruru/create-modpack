@@ -2,7 +2,7 @@ name: Deploy packwiz files to Pages
 
 on:
   push:
-    branches: ["dev", "", ""]
+    branches: ["dev"]
   workflow_dispatch:
 
 permissions:
