@@ -35,7 +35,7 @@ Please note: only MultiMC and its forks are supported.
 > Please, do not report issues that occurred on this version.
 
 ## Installation
-1. Download the [modpack](https://raw.githubusercontent.com/modoruru/create-modpack/refs/heads/dev/static/modoru%20create%20(dev%20branch).zip.toml) for MultiMC
+1. Download the [modpack](https://raw.githubusercontent.com/modoruru/create-modpack/refs/heads/dev/static/modoru%20create%20(dev%20branch).zip) for MultiMC
 2. Import it to MultiMC
 3. Click play
 
