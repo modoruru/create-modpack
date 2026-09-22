@@ -40,6 +40,6 @@ echo "==> Copying ${MODPACK_DIR}/ contents to ${BUILD_DIR}/"
 cp -r "${MODPACK_DIR}"/. "${BUILD_DIR}/"
 
 echo "==> Creating modpack"
-cd build && $PACKWIZ refresh
+cd $BUILD_DIR && $PACKWIZ refresh
 
 echo "==> Done"
