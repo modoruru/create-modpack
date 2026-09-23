@@ -6,9 +6,9 @@
 
   ],
   "mixins": [
-    "server.CampfireBlockEntityMixin",
-    "server.MinecraftServerMixin",
-    "server.RecipeManagerMixin"
+    "common.CampfireBlockEntityMixin",
+    "common.MinecraftServerMixin",
+    "common.RecipeManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

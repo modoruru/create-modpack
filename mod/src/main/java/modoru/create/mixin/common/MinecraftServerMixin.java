@@ -1,4 +1,4 @@
-package modoru.create.mixin.server;
+package modoru.create.mixin.common;
 
 import com.google.common.collect.ImmutableList;
 import modoru.create.patch.Patches;

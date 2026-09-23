@@ -1,4 +1,4 @@
-package modoru.create.mixin.server;
+package modoru.create.mixin.common;
 
 import com.simibubi.create.AllItems;
 import net.minecraft.sounds.SoundEvents;
