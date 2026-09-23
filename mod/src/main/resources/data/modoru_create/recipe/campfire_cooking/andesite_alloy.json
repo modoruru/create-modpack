@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "cookingtime": 600,
+  "ingredient": {
+    "item": "modoru_create:intermediate/unfired_andesite_alloy"
+  },
+  "result": {
+    "count": 1,
+    "id": "create:andesite_alloy"
+  }
+}

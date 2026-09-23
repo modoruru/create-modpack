@@ -18,5 +18,8 @@
   "createmetallurgy:crafting/purple_light_bulb",
   "createmetallurgy:crafting/red_light_bulb",
   "createmetallurgy:crafting/white_light_bulb",
-  "createmetallurgy:crafting/yellow_light_bulb"
+  "createmetallurgy:crafting/yellow_light_bulb",
+
+  "create:crafting/materials/andesite_alloy",
+  "create:crafting/materials/andesite_alloy_from_zinc"
 ]

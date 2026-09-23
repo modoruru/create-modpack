@@ -2,9 +2,13 @@
   "required": true,
   "package": "modoru.create.mixin",
   "compatibilityLevel": "JAVA_21",
+  "server": [
+
+  ],
   "mixins": [
-    "server.RecipeManagerMixin",
-    "server.MinecraftServerMixin"
+    "server.CampfireBlockEntityMixin",
+    "server.MinecraftServerMixin",
+    "server.RecipeManagerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

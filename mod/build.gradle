@@ -9,6 +9,8 @@ group = mod_group_id
 
 repositories {
     mavenLocal()
+    maven { url = "https://maven.createmod.net" }
+    maven { url = "https://maven.ithundxr.dev/snapshots" }
 }
 
 base {
@@ -55,6 +57,8 @@ sourceSets.main.resources {
 }
 
 dependencies {
+    implementation("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false }
+    implementation("com.tterrag.registrate:Registrate:${registrate_version}")
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:andesite"
+    },
+    "B": {
+      "tag": "c:nuggets/zinc"
+    },
+    "C": {
+      "item": "minecraft:clay_ball"
+    }
+  },
+  "pattern": [
+    "CCC",
+    "ABC",
+    "BAC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "modoru_create:intermediate/unfired_andesite_alloy"
+  }
+}

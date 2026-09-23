@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "modoru_create:item/intermediate/unfired_andesite_alloy"
+  }
+}
