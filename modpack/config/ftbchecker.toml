@@ -2,5 +2,7 @@ chunks = false
 base = true
 quests = true
 teams = true
+essentials = false
 ultimine = false
 backups = false
+polyLib = false
