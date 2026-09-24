@@ -10,6 +10,9 @@
     "common.MinecraftServerMixin",
     "common.RecipeManagerMixin"
   ],
+  "client": [
+    "client.MissingModsScreenMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   },
