@@ -11,7 +11,8 @@
     "common.RecipeManagerMixin"
   ],
   "client": [
-    "client.MissingModsScreenMixin"
+    "client.MissingModsScreenMixin",
+    "accessor.ScreenAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
