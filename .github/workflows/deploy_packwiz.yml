@@ -48,4 +48,4 @@ jobs:
         run: |
           tar -C "build/modpack/${BRANCH}" -czf - . | \
             ssh "${SERVER_USER}@${SERVER_HOST}" \
-              "/home/${SERVER_USER}/deploy-packwiz.sh '${BRANCH}' '${SHA}'"
+              "/home/${SERVER_USER}/deploy-packwiz.sh ${BRANCH} ${SHA}"
