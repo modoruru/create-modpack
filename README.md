@@ -41,7 +41,7 @@ Development builds of the modpack are distributed through [GitHub Pages](https:/
 
 Development builds currently support **MultiMC and its forks only**.
 
-1. Download the [development modpack](https://raw.githubusercontent.com/modoruru/create-modpack/refs/heads/dev/static/modoru%20create%20%28dev%20branch%29.zip).
+1. Download the [development modpack](https://download-directory.github.io/?url=https://github.com/modoruru/create-modpack/tree/dev/static/dev&filename=modoru%3A%20create%20(dev%20branch)).
 2. Import the downloaded archive into MultiMC.
 3. Launch the instance.
 
