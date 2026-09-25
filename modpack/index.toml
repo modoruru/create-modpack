@@ -10,7 +10,11 @@ hash = "fd1c0d5b0d88aefec604f322026cb853c126b9a16a42446505182c750453daa5"
 
 [[files]]
 file = "config/ftbchecker.toml"
-hash = "12d65ccfaa84855e7da1186bbf13abd0df396008705d6c0c144d216a72b3f264"
+hash = "5df0802d34ea5955c3077775eb98aa7560744639948620212d64d0ee3359ae02"
+
+[[files]]
+file = "modoru_modpack.properties"
+hash = "9c0ed6982b511ef8be05cfb1c44816165882837500e6a723ca2d58d9619eda99"
 
 [[files]]
 file = "mods/alltheleaks.pw.toml"
