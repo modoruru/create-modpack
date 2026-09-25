@@ -1,25 +1,12 @@
-name: Deploy packwiz files to Pages
+name: Deploy packwiz
 
 on:
   push:
-    branches: ["dev"]
+    branches: ["dev", "staging", 'release']
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
-  deploy_packwiz:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -42,14 +29,23 @@ jobs:
         run: |
           ./publish.sh
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.1
         with:
-          path: './build'
+          ssh-private-key: ${{ secrets.PACKWIZ_SSH_PRIVATE_KEY }}
 
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5
+      - name: Add server to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H "${{ secrets.SERVER_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Deploy to server
+        env:
+          SERVER_HOST: ${{ secrets.SERVER_HOST }}
+          SERVER_USER: ${{ secrets.SERVER_USER }}
+          BRANCH: ${{ github.ref_name }}
+          SHA: ${{ github.sha }}
+        run: |
+          tar -C "build/modpack/${BRANCH}" -czf - . | \
+            ssh "${SERVER_USER}@${SERVER_HOST}" \
+              "/home/${SERVER_USER}/deploy-packwiz.sh '${BRANCH}' '${SHA}'"
