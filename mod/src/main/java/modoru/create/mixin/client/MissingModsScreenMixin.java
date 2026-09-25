@@ -4,6 +4,8 @@ import com.sajmonoriginal.ftbchecker.MissingModsScreen;
 import modoru.create.mixin.accessor.ScreenAccessor;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.network.chat.Component;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -11,6 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Map;
 
+@OnlyIn(Dist.CLIENT)
 @Mixin(MissingModsScreen.class)
 public abstract class MissingModsScreenMixin {
 
