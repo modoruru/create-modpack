@@ -1,9 +1,9 @@
 name: Publish modpack
 
 on:
-  push:
+  pull_request_target:
+    types: [closed]
     branches: ["release"]
-  workflow_dispatch:
 
 permissions:
   contents: write
@@ -15,32 +15,35 @@ concurrency:
 jobs:
   build:
     name: Build modpack
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     outputs:
       version: ${{ steps.metadata.outputs.version }}
       description: ${{ steps.metadata.outputs.description }}
-      artifact: ${{ steps.modpack.outputs.file }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.merge_commit_sha || github.sha }}
 
       - name: Get release metadata
         id: metadata
         shell: bash
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
         run: |
           set -euo pipefail
 
-          VERSION="$(git log -1 --format='%s')"
-          DESCRIPTION="$(git log -1 --format='%b')"
+          VERSION="$PR_TITLE"
+          DESCRIPTION="$PR_BODY"
 
-          if ! [[ "$VERSION" =~ ^v?[0-9]+\.[0-9]+\.[0-9]+([\-+][0-9A-Za-z.-]+)?$ ]]; then
-            echo "Invalid SemVer commit subject: $VERSION"
+          if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+([\-+][0-9A-Za-z.-]+)?$ ]]; then
+            echo "Invalid SemVer PR title: $VERSION"
             exit 1
           fi
-
-          VERSION="${VERSION#v}"
 
           {
             echo "version=$VERSION"
@@ -94,8 +97,8 @@ jobs:
 
   publish-modrinth:
     name: Publish to Modrinth
-    runs-on: ubuntu-latest
     needs: build
+    runs-on: ubuntu-latest
 
     steps:
       - name: Download modpack
@@ -118,8 +121,8 @@ jobs:
 
   publish-github:
     name: Publish GitHub Release
-    runs-on: ubuntu-latest
     needs: build
+    runs-on: ubuntu-latest
 
     steps:
       - name: Download modpack
@@ -132,7 +135,7 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           tag: v${{ needs.build.outputs.version }}
-          name: v${{ needs.build.outputs.version }}
+          name: ${{ needs.build.outputs.version }}
           body: ${{ needs.build.outputs.description }}
           artifacts: build/*.mrpack
           allowUpdates: false
