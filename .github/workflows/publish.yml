@@ -3,6 +3,7 @@ name: Publish modpack
 on:
   push:
     branches: ["release"]
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -47,6 +48,18 @@ jobs:
             echo "$DESCRIPTION"
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
+
+      - name: Install packwiz
+        run: |
+          curl -fL \
+            "https://nightly.link/packwiz/packwiz/workflows/go/main/Linux%2064-bit%20x86.zip" \
+            -o packwiz.zip
+
+          unzip -o packwiz.zip
+
+          chmod +x packwiz
+
+          echo "$PWD" >> "$GITHUB_PATH"
 
       - name: Build modpack
         run: |
