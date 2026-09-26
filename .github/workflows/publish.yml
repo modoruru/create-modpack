@@ -139,7 +139,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          FILE="build/modoru-${{ needs.build.outputs.version }}.mrpack"
+          FILE="build/modoru_create-${{ needs.build.outputs.version }}.mrpack"
 
           if [ ! -f "$FILE" ]; then
             echo "Modpack not found: $FILE"
