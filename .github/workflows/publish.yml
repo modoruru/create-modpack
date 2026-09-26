@@ -82,7 +82,7 @@ jobs:
             exit 1
           fi
 
-          NEW_FILE="build/modoru-${{ steps.metadata.outputs.version }}.mrpack"
+          NEW_FILE="build/modoru_create-${{ steps.metadata.outputs.version }}.mrpack"
 
           mv "$FILE" "$NEW_FILE"
 
