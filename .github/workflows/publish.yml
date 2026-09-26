@@ -21,6 +21,7 @@ jobs:
     outputs:
       version: ${{ steps.metadata.outputs.version }}
       description: ${{ steps.metadata.outputs.description }}
+      file: ${{ steps.modpack.outputs.file }}
 
     steps:
       - name: Checkout
@@ -69,6 +70,7 @@ jobs:
           ./build.sh
 
       - name: Rename modpack
+        id: modpack
         shell: bash
         run: |
           set -euo pipefail
@@ -84,15 +86,16 @@ jobs:
 
           mv "$FILE" "$NEW_FILE"
 
-          echo "Renamed:"
-          echo "  $FILE"
-          echo "  → $NEW_FILE"
+          echo "Found: $FILE"
+          echo "Renamed to: $NEW_FILE"
+
+          echo "file=$NEW_FILE" >> "$GITHUB_OUTPUT"
 
       - name: Upload modpack
         uses: actions/upload-artifact@v4
         with:
           name: modpack
-          path: build/*.mrpack
+          path: ${{ steps.modpack.outputs.file }}
           if-no-files-found: error
 
   publish-modrinth:
@@ -115,7 +118,7 @@ jobs:
           version: ${{ needs.build.outputs.version }}
           name: ${{ needs.build.outputs.version }}
           changelog: ${{ needs.build.outputs.description }}
-          files: build/*.mrpack
+          files: build/modoru_create-${{ needs.build.outputs.version }}.mrpack
           loaders: neoforge
           game-versions: 1.21.1
 
@@ -131,13 +134,27 @@ jobs:
           name: modpack
           path: build
 
+      - name: Verify modpack
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          FILE="build/modoru-${{ needs.build.outputs.version }}.mrpack"
+
+          if [ ! -f "$FILE" ]; then
+            echo "Modpack not found: $FILE"
+            exit 1
+          fi
+
+          ls -lh "$FILE"
+
       - name: Create GitHub Release
         uses: ncipollo/release-action@v1
         with:
           tag: v${{ needs.build.outputs.version }}
           name: ${{ needs.build.outputs.version }}
           body: ${{ needs.build.outputs.description }}
-          artifacts: build/*.mrpack
+          artifacts: build/modoru_create-${{ needs.build.outputs.version }}.mrpack
           allowUpdates: false
           draft: false
           prerelease: ${{ contains(needs.build.outputs.version, '-') }}
