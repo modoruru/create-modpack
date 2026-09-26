@@ -1,0 +1,127 @@
+name: Publish modpack
+
+on:
+  push:
+    branches: ["release"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-release
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build modpack
+    runs-on: ubuntu-latest
+
+    outputs:
+      version: ${{ steps.metadata.outputs.version }}
+      description: ${{ steps.metadata.outputs.description }}
+      artifact: ${{ steps.modpack.outputs.file }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get release metadata
+        id: metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          VERSION="$(git log -1 --format='%s')"
+          DESCRIPTION="$(git log -1 --format='%b')"
+
+          if ! [[ "$VERSION" =~ ^v?[0-9]+\.[0-9]+\.[0-9]+([\-+][0-9A-Za-z.-]+)?$ ]]; then
+            echo "Invalid SemVer commit subject: $VERSION"
+            exit 1
+          fi
+
+          VERSION="${VERSION#v}"
+
+          {
+            echo "version=$VERSION"
+            echo "description<<EOF"
+            echo "$DESCRIPTION"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Build modpack
+        run: |
+          ./build.sh
+
+      - name: Rename modpack
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          FILE="$(find build -maxdepth 1 -type f -name '*.mrpack' -print -quit)"
+
+          if [ -z "$FILE" ]; then
+            echo "No .mrpack file found in build/"
+            exit 1
+          fi
+
+          NEW_FILE="build/modoru-${{ steps.metadata.outputs.version }}.mrpack"
+
+          mv "$FILE" "$NEW_FILE"
+
+          echo "Renamed:"
+          echo "  $FILE"
+          echo "  → $NEW_FILE"
+
+      - name: Upload modpack
+        uses: actions/upload-artifact@v4
+        with:
+          name: modpack
+          path: build/*.mrpack
+          if-no-files-found: error
+
+  publish-modrinth:
+    name: Publish to Modrinth
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Download modpack
+        uses: actions/download-artifact@v4
+        with:
+          name: modpack
+          path: build
+
+      - name: Publish to Modrinth
+        uses: cloudnode-pro/modrinth-publish@v2
+        with:
+          token: ${{ secrets.MODRINTH_TOKEN }}
+          project: ${{ secrets.MODRINTH_PROJECT_ID }}
+          version: ${{ needs.build.outputs.version }}
+          name: ${{ needs.build.outputs.version }}
+          changelog: ${{ needs.build.outputs.description }}
+          files: build/*.mrpack
+          loaders: neoforge
+          game-versions: 1.21.1
+
+  publish-github:
+    name: Publish GitHub Release
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Download modpack
+        uses: actions/download-artifact@v4
+        with:
+          name: modpack
+          path: build
+
+      - name: Create GitHub Release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: v${{ needs.build.outputs.version }}
+          name: v${{ needs.build.outputs.version }}
+          body: ${{ needs.build.outputs.description }}
+          artifacts: build/*.mrpack
+          allowUpdates: false
+          draft: false
+          prerelease: ${{ contains(needs.build.outputs.version, '-') }}
