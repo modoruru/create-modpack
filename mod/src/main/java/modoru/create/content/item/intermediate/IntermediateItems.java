@@ -1,6 +1,6 @@
-package modoru.create.item.intermediate;
+package modoru.create.content.item.intermediate;
 
-import modoru.create.item.ItemCategory;
+import modoru.create.content.item.ItemCategory;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 

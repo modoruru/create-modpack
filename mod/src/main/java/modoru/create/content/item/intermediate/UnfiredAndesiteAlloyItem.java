@@ -1,4 +1,4 @@
-package modoru.create.item.intermediate;
+package modoru.create.content.item.intermediate;
 
 import net.minecraft.world.item.Item;
 

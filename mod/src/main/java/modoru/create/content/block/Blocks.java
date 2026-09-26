@@ -1,4 +1,4 @@
-package modoru.create.block;
+package modoru.create.content.block;
 
 import modoru.create.ModoruCreate;
 import net.neoforged.bus.api.IEventBus;

@@ -1,24 +1,20 @@
-package modoru.create.item;
+package modoru.create.content.item;
 
+import modoru.create.content.RegistrableCategory;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.function.Function;
-import java.util.function.Supplier;
 
-public abstract class ItemCategory {
+public abstract class ItemCategory extends RegistrableCategory<Item, DeferredRegister.Items> {
 
-    protected final DeferredRegister.Items items;
-    protected final String category;
-
-    public ItemCategory(DeferredRegister.Items items, String category) {
-        this.items = items;
-        this.category = category;
+    public ItemCategory(DeferredRegister.Items register, String category) {
+        super(register, category);
     }
 
     public <I extends Item> DeferredItem<I> registerItem(String name, Function<Item.Properties, ? extends I> func, Item.Properties props) {
-        return items.register(category + "/" + name, (Supplier) () -> (Item) func.apply(props));
+        return register.register(category + "/" + name, () -> func.apply(props));
     }
 
     public <I extends Item> DeferredItem<I> registerItem(String name, Function<Item.Properties, ? extends I> func) {

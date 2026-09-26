@@ -1,8 +1,8 @@
 package modoru.create;
 
 import com.mojang.logging.LogUtils;
-import modoru.create.block.Blocks;
-import modoru.create.item.Items;
+import modoru.create.content.block.Blocks;
+import modoru.create.content.item.Items;
 import modoru.create.patch.Patches;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;

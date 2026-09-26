@@ -1,7 +1,7 @@
-package modoru.create.item;
+package modoru.create.content.item;
 
 import modoru.create.ModoruCreate;
-import modoru.create.item.intermediate.IntermediateItems;
+import modoru.create.content.item.intermediate.IntermediateItems;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 

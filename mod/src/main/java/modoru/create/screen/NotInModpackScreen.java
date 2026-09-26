@@ -18,10 +18,8 @@ public final class NotInModpackScreen extends Screen {
     private static final String GITHUB_URL = "https://github.com/modoruru/create-modpack";
     private static final String MODRINTH_URL = "https://modrinth.com/modpack/modoru-create";
 
-    private final Component errorText =
-            Component.literal("Mod is started outside of the \"modoru: create\" modpack.");
-    private final Component errorSecondLine =
-            Component.literal("This may cause undefined behavior and is not supported.");
+    private final Component errorText = Component.literal("Mod is started outside of the \"modoru: create\" modpack.");
+    private final Component errorSecondLine = Component.literal("This may cause undefined behavior and is not supported.");
 
     public NotInModpackScreen() {
         super(Component.literal("Not in modpack"));
@@ -35,11 +33,7 @@ public final class NotInModpackScreen extends Screen {
 
         int centerX = this.width / 2;
 
-        // Total height:
-        // 3 buttons + 2 gaps
         int totalButtonHeight = buttonHeight * 3 + buttonGap * 2;
-
-        // Center the entire button group vertically.
         int firstButtonY = this.height / 2 - totalButtonHeight / 2;
 
         this.addRenderableWidget(
@@ -66,25 +60,11 @@ public final class NotInModpackScreen extends Screen {
         super.render(graphics, mouseX, mouseY, partialTick);
 
         int centerX = this.width / 2;
-
         int titleY = this.height / 2 - 80;
         int subtitleY = titleY + 15;
 
-        graphics.drawCenteredString(
-                this.font,
-                this.errorText,
-                centerX,
-                titleY,
-                0xFFFFFF
-        );
-
-        graphics.drawCenteredString(
-                this.font,
-                this.errorSecondLine,
-                centerX,
-                subtitleY,
-                0xFFFFFF
-        );
+        graphics.drawCenteredString(this.font, this.errorText, centerX, titleY, 0xFFFFFF);
+        graphics.drawCenteredString(this.font, this.errorSecondLine, centerX, subtitleY, 0xFFFFFF);
     }
 
     @Override
@@ -95,7 +75,8 @@ public final class NotInModpackScreen extends Screen {
     private void openWebPage(String url) {
         try {
             Util.getPlatform().openUri(new URI(url));
-        } catch (URISyntaxException e) {
+        }
+        catch (URISyntaxException e) {
             e.printStackTrace();
         }
     }
