@@ -132,6 +132,11 @@ hash = "953d05472970bb3cd62538a1e376a416ecbf45b0517eae72ea22912fd4236889"
 metafile = true
 
 [[files]]
+file = "mods/curios.pw.toml"
+hash = "36debf7653e95a855b4fedacc19027cf2e01960fc0b6d55ef2ffbffbcb455690"
+metafile = true
+
+[[files]]
 file = "mods/delight-lib.pw.toml"
 hash = "c4fb5bf78ad912a20ff50767f4e5cb64fd84f04d58db0c79bc728b643acc4038"
 metafile = true
