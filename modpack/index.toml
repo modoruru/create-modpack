@@ -13,6 +13,14 @@ file = "config/ftbchecker.toml"
 hash = "5df0802d34ea5955c3077775eb98aa7560744639948620212d64d0ee3359ae02"
 
 [[files]]
+file = "config/gravestone-server.toml"
+hash = "988716181a7da42501e3a2cb300914062658d0b62744b631c852bb0cd9509429"
+
+[[files]]
+file = "config/sol_valheim_reforged-common.toml"
+hash = "e40bd0fb76428c1062b4eb370a0097f7b74576a99e7653dfa5e1f13292c8d571"
+
+[[files]]
 file = "modoru_modpack.properties"
 hash = "9c0ed6982b511ef8be05cfb1c44816165882837500e6a723ca2d58d9619eda99"
 
@@ -28,7 +36,7 @@ metafile = true
 
 [[files]]
 file = "mods/baguettelib.pw.toml"
-hash = "b4ab41ad61b509a23ad7ca593475bf0ba88847c2139aed3027c24ef19d8387da"
+hash = "ad964c7bc216dc509aba7cc617456a340e7746565e79d0cd4fab8a4d31ec95ed"
 metafile = true
 
 [[files]]
