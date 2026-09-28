@@ -16,7 +16,7 @@ jobs:
       - name: Install packwiz
         run: |
           curl -fL \
-            "https://nightly.link/packwiz/packwiz/workflows/go/main/Linux%2064-bit%20x86.zip" \
+            "https://nightly.link/packwiz/packwiz/actions/runs/34043101039/Linux%2064-bit%20x86.zip" \
             -o packwiz.zip
 
           unzip -o packwiz.zip
