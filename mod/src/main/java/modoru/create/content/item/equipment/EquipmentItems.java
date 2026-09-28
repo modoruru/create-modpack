@@ -6,8 +6,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public final class EquipmentItems extends ItemCategory {
 
-    public final DeferredItem<AirTankItem> OXYGEN_TANK = registerItem("oxygen_tank", AirTankItem::new);
-    public final DeferredItem<AirMaskItem> OXYGEN_MASK = registerItem("oxygen_mask", AirMaskItem::new);
+    public final DeferredItem<AirTankItem> AIR_TANK = registerItem("air_tank", AirTankItem::new);
+    public final DeferredItem<AirMaskItem> AIR_MASK = registerItem("air_mask", AirMaskItem::new);
 
     public EquipmentItems(DeferredRegister.Items register) {
         super(register, "equipment");

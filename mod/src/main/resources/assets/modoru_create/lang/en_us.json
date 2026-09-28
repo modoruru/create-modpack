@@ -3,6 +3,5 @@
   "item.modoru_create.equipment.air_mask": "Air Mask",
   "item.modoru_create.equipment.air_tank": "Air Tank",
 
-  "air_tank.amount": "Air: %s/%s mb",
-  "air_tank.temperature": "Air Temperature: %s°C"
+  "air_tank.info": "Air: %s/%s mb; %s°C"
 }
