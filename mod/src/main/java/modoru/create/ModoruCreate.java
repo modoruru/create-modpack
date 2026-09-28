@@ -2,6 +2,7 @@ package modoru.create;
 
 import com.mojang.logging.LogUtils;
 import modoru.create.content.block.Blocks;
+import modoru.create.content.component.DataComponents;
 import modoru.create.content.item.Items;
 import modoru.create.patch.Patches;
 import net.neoforged.bus.api.IEventBus;
@@ -18,6 +19,7 @@ public final class ModoruCreate {
     public ModoruCreate(IEventBus modEventBus, ModContainer modContainer) {
         Items.register(modEventBus);
         Blocks.register(modEventBus);
+        DataComponents.register(modEventBus);
 
         Patches.bootstrap(modEventBus);
     }
