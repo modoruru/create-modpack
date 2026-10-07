@@ -1,5 +1,7 @@
 {
   "item.modoru_create.intermediate.unfired_andesite_alloy": "Необожженный андезитовый сплав",
-  "item.modoru_create.equipment.oxygen_mask": "Кислородная маска",
-  "item.modoru_create.equipment.oxygen_tank": "Кислородный баллон"
+  "item.modoru_create.equipment.air_mask": "Кислородная маска",
+  "item.modoru_create.equipment.air_tank": "Кислородный баллон",
+
+  "air_tank.info": "Воздух: %s/%s mb; %s°C"
 }
