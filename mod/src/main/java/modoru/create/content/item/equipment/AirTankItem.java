@@ -3,9 +3,11 @@ package modoru.create.content.item.equipment;
 import modoru.create.content.component.DataComponents;
 import modoru.create.content.component.equipment.AirState;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -26,23 +28,51 @@ public final class AirTankItem extends Item {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context, @NotNull List<Component> tooltipComponents, @NotNull TooltipFlag tooltipFlag) {
-        AirState airState = stack.get(DataComponents.EQUIPMENT.TANK_AIR_STATE);
-        if(airState == null) return;
+    public boolean isBarVisible(@NotNull ItemStack stack) {
+        return true;
+    }
 
-        float temperature = airState.temperature();
+    public static float getFillLevel(ItemStack stack) {
+        AirState airState = stack.getOrDefault(DataComponents.EQUIPMENT.TANK_AIR_STATE, DEFAULT_AIR_STATE);
+        return airState.value() / (float) airState.maxValue();
+    }
 
+    @Override
+    public int getBarWidth(@NotNull ItemStack stack) {
+        return Math.round(13.0F * getFillLevel(stack));
+    }
+
+    @Override
+    public int getBarColor(@NotNull ItemStack stack) {
+        return getTemperatureColor(stack.getOrDefault(DataComponents.EQUIPMENT.TANK_AIR_STATE, DEFAULT_AIR_STATE).temperature());
+    }
+
+    public static int getTemperatureColor(float temperature) {
         int color;
         if(temperature > 0) color = gradient(WHITE_COLOR, RED_COLOR, temperature / MAX_TEMPERATURE);
         else if(temperature == 0) color = WHITE_COLOR;
         else color = gradient(WHITE_COLOR, BLUE_COLOR, temperature / MIN_TEMPERATURE);
 
+        return color;
+    }
+
+    @Override
+    public void inventoryTick(@NotNull ItemStack stack, @NotNull Level level, @NotNull Entity entity, int slotId, boolean isSelected) {
+        super.inventoryTick(stack, level, entity, slotId, isSelected);
+    }
+
+    @Override
+    public void appendHoverText(@NotNull ItemStack stack, @NotNull TooltipContext context, @NotNull List<Component> tooltipComponents, @NotNull TooltipFlag tooltipFlag) {
+        AirState airState = stack.get(DataComponents.EQUIPMENT.TANK_AIR_STATE);
+        if(airState == null) return;
+
+        float temperature = airState.temperature();
         tooltipComponents.add(Component.translatable(
                 "air_tank.info",
                 airState.value(),
                 airState.maxValue(),
                 Component.literal(String.valueOf(temperature))
-                        .withColor(color)
+                        .withColor(getTemperatureColor(temperature))
         ));
     }
 
