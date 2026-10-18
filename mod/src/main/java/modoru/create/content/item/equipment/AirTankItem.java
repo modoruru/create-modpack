@@ -14,6 +14,8 @@ import java.util.List;
 
 public final class AirTankItem extends Item {
 
+    private static final int TANK_PRESSURE = 1; // 1 p
+
     private static final int
             RED_COLOR = 0xff5555,
             BLUE_COLOR = 0x5555ff,
@@ -25,6 +27,37 @@ public final class AirTankItem extends Item {
 
     public AirTankItem(Properties properties) {
         super(properties.component(DataComponents.EQUIPMENT.TANK_AIR_STATE, DEFAULT_AIR_STATE));
+    }
+
+    public static float celsiusToKelvin(float celsius) {
+        return celsius + 273.15f;
+    }
+
+    public static float kelvinToCelsius(float kelvin) {
+        return kelvin - 273.15f;
+    }
+
+    public static float mixRatio(float highestTemperatureC, float targetTemperatureC, float lowestTemperatureC) {
+        if(!(highestTemperatureC >= targetTemperatureC && targetTemperatureC >= lowestTemperatureC)) throw new IllegalArgumentException("highest >= target >= lowest");
+        if(highestTemperatureC == targetTemperatureC) return Float.POSITIVE_INFINITY;
+        if(lowestTemperatureC == targetTemperatureC) return 0;
+
+        float htk = celsiusToKelvin(highestTemperatureC), ttk = celsiusToKelvin(targetTemperatureC), ltk = celsiusToKelvin(lowestTemperatureC);
+        return (htk * (ttk - ltk)) / (ltk * (htk - ttk));
+    }
+
+    public static float volumeOfMix(AirState highest, float targetTemperature, AirState lowest) {
+        float ratio = mixRatio(highest.temperature(), targetTemperature, lowest.temperature());
+        if(ratio == Float.POSITIVE_INFINITY) return highest.value();
+        if(ratio == 1) return highest.value() + lowest.value();
+        if(ratio == 0) return lowest.value();
+
+        float htk = celsiusToKelvin(highest.temperature()), ttk = celsiusToKelvin(targetTemperature), ltk = celsiusToKelvin(lowest.temperature());
+
+        float lowUsed = Math.min(lowest.value(), highest.value() / ratio);
+        float highUsed = ratio * lowUsed;
+
+        return ttk * (highUsed / htk + lowUsed / ltk);
     }
 
     @Override
