@@ -276,7 +276,7 @@ metafile = true
 
 [[files]]
 file = "mods/immediatelyfast.pw.toml"
-hash = "2863a3b187723e1f69ed2ad2b2c3d834e8442468a1347c80df5b310e243c8753"
+hash = "4601b9be31b6e131dca8a148c974d015444bcac7c82fcb66fbd8751a67933a5d"
 metafile = true
 
 [[files]]
@@ -301,7 +301,7 @@ metafile = true
 
 [[files]]
 file = "mods/jei.pw.toml"
-hash = "cfc4d1bcc1ff43a45933e05db06fe8e2e607b01304ec4810544b6d7179668b54"
+hash = "f81636b1fdf85e3291b5fd4d3e6754747793fd0e65c1d0537dc8f892b5cdcda1"
 metafile = true
 
 [[files]]
@@ -371,12 +371,12 @@ metafile = true
 
 [[files]]
 file = "mods/placebo.pw.toml"
-hash = "66721ef8bf191ccbc1ebe53ef163d2b233be19e3617dac277b16c765a67ba9c7"
+hash = "d94791108548d174758d587440c656f1a56884083fa3151bf90b515126482435"
 metafile = true
 
 [[files]]
 file = "mods/polytone.pw.toml"
-hash = "f54e19ec4d32f64f985900fc2da5579769937dff081167d48bec11932198b55f"
+hash = "cbac7982f1372646ae50fb6ddfe7d75abd43101f5b461938e67c206f20a7fd7c"
 metafile = true
 
 [[files]]
