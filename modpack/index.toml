@@ -251,7 +251,7 @@ metafile = true
 
 [[files]]
 file = "mods/fzzy-config.pw.toml"
-hash = "932c65fb598293dba5dc60a76fc64c2579db427018b10dd4757dd421d9abcaf0"
+hash = "f2849c357f9c82d017ff71c6d5e91ac8e51d6b0f2de9e7ae8d95bfb81759cd63"
 metafile = true
 
 [[files]]
@@ -301,12 +301,12 @@ metafile = true
 
 [[files]]
 file = "mods/jei.pw.toml"
-hash = "f81636b1fdf85e3291b5fd4d3e6754747793fd0e65c1d0537dc8f892b5cdcda1"
+hash = "1af5a3356a1d4edbc9aaf92244ab8f76de5c9dfbfb7d9d2fa4a7ad660cf65215"
 metafile = true
 
 [[files]]
 file = "mods/just-zoom.pw.toml"
-hash = "54ae4d1b65e66b6670b227f50bae76dcef26ac1ffbd2e47f75cce4007153b774"
+hash = "4c64dc39ebe1d44d39b5876848695d3f8d4670be71019509bf74905309ac2791"
 metafile = true
 
 [[files]]
@@ -331,7 +331,7 @@ metafile = true
 
 [[files]]
 file = "mods/modernfix.pw.toml"
-hash = "d10fbef1555f5277563b9cbf7683811ac0f38c1af41646e6ce5c3aaa2149425d"
+hash = "ef65836e005bd42a0f40df30a94eba1ad7ee5ed3194b11eafbeadc64edb44252"
 metafile = true
 
 [[files]]
@@ -376,7 +376,7 @@ metafile = true
 
 [[files]]
 file = "mods/polytone.pw.toml"
-hash = "cbac7982f1372646ae50fb6ddfe7d75abd43101f5b461938e67c206f20a7fd7c"
+hash = "0bd2c04284e7e002ee68ba7109284fce150ef7672593a6d6126f47ab0a06c6ee"
 metafile = true
 
 [[files]]
@@ -401,7 +401,7 @@ metafile = true
 
 [[files]]
 file = "mods/sodium-extra.pw.toml"
-hash = "6ab228a1fa98348b7444c0715e4db592414d2102e441671ac5e79066596a912c"
+hash = "7ece7b8e65ac74bc1c705a3e25948ce5772c26ddf148514f29d90920ca1c3866"
 metafile = true
 
 [[files]]
